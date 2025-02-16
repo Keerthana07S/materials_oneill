@@ -13,9 +13,9 @@ properties_normalized = (properties - properties_mean) / properties_std
 required_properties = np.array([150, 70, 0.05, -5.0, 0.0, 3.0])
 required_properties_normalized = (required_properties - properties_mean) / properties_std
 
-weights = np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])  # Higher weight for band gap & anisotropy
+weights = np.array([1.0, 1.0, 1.0, 1.0, 1.0, 1.0]) 
 weighted_diff = (properties_normalized - required_properties_normalized) * weights
-distances = np.linalg.norm(weighted_diff, axis=1)  # Weighted Euclidean distance
+distances = np.linalg.norm(weighted_diff, axis=1)
 
 closest_indices = np.argsort(distances)[:5]
 closest_materials = df.iloc[closest_indices]
